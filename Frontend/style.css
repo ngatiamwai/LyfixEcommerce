@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer utilities {
+    .content-auto {
+      content-visibility: auto;
+    }
+  } */
+ 
+/* .productsBody{
+    display: flex;
+    flex-direction: column;
+    gap: 200vh;
+} */
+/* .topNav{
+    background-color: rgb(59, 59, 59);
+} */

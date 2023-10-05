@@ -1,0 +1,41 @@
+###Register User
+POST http://localhost:1000/user/register/
+Content-Length: application/json
+
+{
+    "firstName": "Ngatia",
+    "lastName": "Mwai",
+    "email": "mwai0@gmail.com",
+    "phoneNumber": "1234567",
+    "password": "123456789"
+}
+
+
+###Login User
+GET http://localhost:1000/user/login
+Content-Length: application/json
+
+{
+    "email": "mwai@gmail.com",
+    "password": "123456789"
+}
+
+###All users
+GET http://localhost:1000/user/allusers
+
+
+
+###update user
+POST http://localhost:1000/user/update/01dd871b-b7b7-460a-93f2-b4546ef46036
+Content-Length: application/json
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWRkODcxYi1iN2I3LTQ2MGEtOTNmMi1iNDU0NmVmNDYwMzYiLCJmaXJzdE5hbWUiOiJOZ2F0aWEiLCJsYXN0TmFtZSI6Ik13YWkiLCJlbWFpbCI6Im13YWkwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JHp1RUZ0SmNLN1RrSXVYMzBqUXZSSHV5Z3hOWXdUS3BZNTUzeVM2ZHFBSjdSL1hudnZEWkUyIiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3IiwicmVnaXN0cmF0aW9uRGF0ZSI6IjIwMjMtMTAtMDVUMTY6MjE6MzQuOTUwWiIsImlhdCI6MTY5NjUxNTY3NCwiZXhwIjoxNjk2NTUxNjc0fQ.WPjaiW2tqQQna0p3gczOY10_FGX1hieZvr8ks_Cw-7c
+
+{
+    "firstName": "Ngatia",
+    "lastName": "Mwai",
+    "email": "mwai1@gmail.com",
+    "phoneNumber": "1234567",
+    "password":"1234567890"
+}
+
+
