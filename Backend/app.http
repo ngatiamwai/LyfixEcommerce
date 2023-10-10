@@ -1,6 +1,6 @@
 ###Register User
 POST http://localhost:1000/user/register/
-Content-Length: application/json
+Content-Type: application/json
 
 {
     "firstName": "Ngatia",
@@ -11,12 +11,12 @@ Content-Length: application/json
 }
 
 
-###Login User
+###Login User/Thunder Client
 GET http://localhost:1000/user/login
-Content-Length: application/json
+Content-Type: application/json
 
 {
-    "email": "mwai@gmail.com",
+    "email": "mwai2@gmail.com",
     "password": "123456789"
 }
 
@@ -25,17 +25,75 @@ GET http://localhost:1000/user/allusers
 
 
 
-###update user
+###update /Thunder Client
 POST http://localhost:1000/user/update/01dd871b-b7b7-460a-93f2-b4546ef46036
-Content-Length: application/json
-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWRkODcxYi1iN2I3LTQ2MGEtOTNmMi1iNDU0NmVmNDYwMzYiLCJmaXJzdE5hbWUiOiJOZ2F0aWEiLCJsYXN0TmFtZSI6Ik13YWkiLCJlbWFpbCI6Im13YWkwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JHp1RUZ0SmNLN1RrSXVYMzBqUXZSSHV5Z3hOWXdUS3BZNTUzeVM2ZHFBSjdSL1hudnZEWkUyIiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3IiwicmVnaXN0cmF0aW9uRGF0ZSI6IjIwMjMtMTAtMDVUMTY6MjE6MzQuOTUwWiIsImlhdCI6MTY5NjUxNTY3NCwiZXhwIjoxNjk2NTUxNjc0fQ.WPjaiW2tqQQna0p3gczOY10_FGX1hieZvr8ks_Cw-7c
+Content-Type: : application/json
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWRkODcxYi1iN2I3LTQ2MGEtOTNmMi1iNDU0NmVmNDYwMzYiLCJmaXJzdE5hbWUiOiJOZ2F0aWEyIiwibGFzdE5hbWUiOiJNd2FpMiIsImVtYWlsIjoibXdhaTJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkenVFRnRKY0s3VGtJdVgzMGpRdlJIdXlneE5Zd1RLcFk1NTN5UzZkcUFKN1IvWG52dkRaRTIiLCJwaG9uZU51bWJlciI6IjEyMzQ1Njc4IiwicmVnaXN0cmF0aW9uRGF0ZSI6IjIwMjMtMTAtMDVUMTY6MjE6MzQuOTUwWiIsImlhdCI6MTY5NjkyMTk2NCwiZXhwIjoxNjk2OTU3OTY0fQ.BU2r9zOWfFv6WTnsv_i-4zyq4cwHg1EuZ0OJ4G76K98
 
 {
-    "firstName": "Ngatia",
-    "lastName": "Mwai",
-    "email": "mwai1@gmail.com",
-    "phoneNumber": "1234567",
-    "password":"1234567890"
+    "firstName": "Ngatia3",
+    "lastName": "Mwai3",
+    "email": "mwai4@gmail.com",
+    "phoneNumber": "12345678",
 }
 
+
+###Get one user
+GET http://localhost:1000/user/oneuser/01dd871b-b7b7-460a-93f2-b4546ef46036
+Content-Type: application/json
+
+
+###Delete user
+DELETE  http://localhost:1000/user/deleteuser/a14389fc-a558-434a-9ccd-ed10ca0cd4a4
+Content-Type: application/json
+
+
+###Create product
+POST http://localhost:1000/products/newproduct/
+Content-Type: application/json
+
+{
+    "productName": "Mazda",
+    "productDescription": "The best Mazda in the market",
+    "productPrice": "7000000",
+    "productCategory": "car",
+    "productImage": "123456789",
+    "productNum":"23"
+}
+
+
+###Get all products
+GET http://localhost:1000/products/allproducts/
+Content-Type: application/json
+
+
+
+###Get one product
+GET http://localhost:1000/products/oneproduct/5a4bc3de-1523-4f1a-a548-fec8d5647e4f
+Content-Type: application/json
+
+
+
+###Update product/updating but sending a wrong message
+POST http://localhost:1000/products/updateproduct/4d162ae0-0261-43b5-b413-9b36e1422705
+Content-Type: application/json
+
+{
+    "productName": "Shuka",
+    "productDescription": "The best shuka in the market",
+    "productPrice": "3000",
+    "productCategory": "Fashion",
+    "productImage": "productImage"
+}
+
+
+###Delete product
+DELETE  http://localhost:1000/products/deleteproduct/5a4bc3de-1523-4f1a-a548-fec8d5647e4f
+Content-Type: application/json
+
+
+
+###Add product To cart/resume from here
+POST http://localhost:1000/cart/addtocart/12bd3095-d88a-4340-bf1e-e7975195a168/4d162ae0-0261-43b5-b413-9b36e1422705
+Content-Type: application/json
 

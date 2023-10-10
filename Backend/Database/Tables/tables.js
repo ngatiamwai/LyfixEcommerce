@@ -30,6 +30,41 @@ const createUsersTable = async () => {
   }
 };
 
+const productsTable = async ()=>{
+  try {
+    const productsTable = `
+    BEGIN TRY
+CREATE TABLE productsTable(
+        productId VARCHAR(200) PRIMARY KEY,
+        productName VARCHAR(255) NOT NULL,
+        productDescription TEXT,
+        productPrice DECIMAL(10, 2) NOT NULL,
+        productCategory VARCHAR(100),
+        productImage VARCHAR(255),
+        productNum INT NOT NULL DEFAULT 0, 
+        createdAt DATETIME DEFAULT GETDATE(),
+        updatedAt DATETIME
+    );
+END TRY
+BEGIN CATCH
+    THROW 50001, 'Table already exists!', 1;
+END CATCH;`
+    
+const pool = await mssql.connect(sqlConfig);
+
+    await pool.request().query(productsTable, (err) => {
+      if (err instanceof mssql.RequestError) {
+        console.log(err.message);
+      } else {
+        console.log("Table created Successfully");
+      }
+    });
+  } catch (error) {
+    return { Error: error }
+  }
+}
+
 module.exports= {
-    createUsersTable
+    createUsersTable,
+    productsTable
 }

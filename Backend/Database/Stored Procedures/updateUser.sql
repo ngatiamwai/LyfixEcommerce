@@ -3,9 +3,7 @@ CREATE OR ALTER PROCEDURE updateUserProc
     @firstName VARCHAR(250),
     @lastName VARCHAR(250),
     @email VARCHAR(200),
-    @password VARCHAR(255),
-    @phoneNumber VARCHAR(20),
-    @role VARCHAR(20)
+    @phoneNumber VARCHAR(20)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -19,9 +17,7 @@ BEGIN
             firstName = @firstName,
             lastName = @lastName,
             email = @email,
-            password = @password,
-            phoneNumber = @phoneNumber,
-            role = @role
+            phoneNumber = @phoneNumber
         WHERE userId = @userId;
 
         SELECT 'User updated successfully' AS Status;
