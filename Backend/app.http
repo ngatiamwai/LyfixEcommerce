@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "firstName": "Ngatia",
     "lastName": "Mwai",
-    "email": "mwai0@gmail.com",
+    "email": "mwai4@gmail.com",
     "phoneNumber": "1234567",
     "password": "123456789"
 }
@@ -16,7 +16,7 @@ GET http://localhost:1000/user/login
 Content-Type: application/json
 
 {
-    "email": "mwai2@gmail.com",
+    "email": "mwai4@gmail.com",
     "password": "123456789"
 }
 
@@ -26,20 +26,20 @@ GET http://localhost:1000/user/allusers
 
 
 ###update /Thunder Client
-POST http://localhost:1000/user/update/01dd871b-b7b7-460a-93f2-b4546ef46036
+POST http://localhost:1000/user/update/66d7cbe9-80d7-4870-a96a-90edc6510dd2
 Content-Type: : application/json
-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWRkODcxYi1iN2I3LTQ2MGEtOTNmMi1iNDU0NmVmNDYwMzYiLCJmaXJzdE5hbWUiOiJOZ2F0aWEyIiwibGFzdE5hbWUiOiJNd2FpMiIsImVtYWlsIjoibXdhaTJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkenVFRnRKY0s3VGtJdVgzMGpRdlJIdXlneE5Zd1RLcFk1NTN5UzZkcUFKN1IvWG52dkRaRTIiLCJwaG9uZU51bWJlciI6IjEyMzQ1Njc4IiwicmVnaXN0cmF0aW9uRGF0ZSI6IjIwMjMtMTAtMDVUMTY6MjE6MzQuOTUwWiIsImlhdCI6MTY5NjkyMTk2NCwiZXhwIjoxNjk2OTU3OTY0fQ.BU2r9zOWfFv6WTnsv_i-4zyq4cwHg1EuZ0OJ4G76K98
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YjI5YWU1ZS03YzU1LTQ3YzItODcyNC01MjUzZjQzODFlMTciLCJmaXJzdE5hbWUiOiJOZ2F0aWEiLCJsYXN0TmFtZSI6Ik13YWkiLCJlbWFpbCI6Im13YWk0QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JEFXd1VVZDk2UHY4eVc3eDkxRnhvek9mWEkxQ0ZidWxNTkJJMkgyTXdRVXI0cG9tUVVaeDlhIiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3IiwicmVnaXN0cmF0aW9uRGF0ZSI6IjIwMjMtMTAtMTFUMTE6MjI6MzUuNjA3WiIsImlhdCI6MTY5NzAxMjYwNCwiZXhwIjoxNjk3MDQ4NjA0fQ.9ExW9iQDMifwBbB_naDc_I_V7SS74LAHoCFzx5R5rMQ
 
 {
     "firstName": "Ngatia3",
     "lastName": "Mwai3",
-    "email": "mwai4@gmail.com",
+    "email": "mwai5@gmail.com",
     "phoneNumber": "12345678",
 }
 
 
 ###Get one user
-GET http://localhost:1000/user/oneuser/01dd871b-b7b7-460a-93f2-b4546ef46036
+GET http://localhost:1000/user/oneuser/12bd3095-d88a-4340-bf1e-e7975195a168
 Content-Type: application/json
 
 
@@ -68,6 +68,7 @@ Content-Type: application/json
 
 
 
+
 ###Get one product
 GET http://localhost:1000/products/oneproduct/5a4bc3de-1523-4f1a-a548-fec8d5647e4f
 Content-Type: application/json
@@ -93,7 +94,19 @@ Content-Type: application/json
 
 
 
-###Add product To cart/resume from here
+###Add product To cart
 POST http://localhost:1000/cart/addtocart/12bd3095-d88a-4340-bf1e-e7975195a168/4d162ae0-0261-43b5-b413-9b36e1422705
+Content-Type: application/json
+
+
+
+###your cart
+GET http://localhost:1000/cart/yourcart/12bd3095-d88a-4340-bf1e-e7975195a168/
+Content-Type: application/json
+
+
+
+###Remove product from cart
+DELETE http://localhost:1000/cart/removefromcart/f0ddfba6-5180-42ad-9a65-30baded30ef4
 Content-Type: application/json
 

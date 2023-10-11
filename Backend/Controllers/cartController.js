@@ -14,24 +14,19 @@ const addProductToCart = async (req, res) => {
         // Generate a new cartId
         const cartId = v4();
 
-        // Fetch product details based on product_Id
-        const productDetails = await fetchProductDetails(product_Id);
-
-        // Check if product details were fetched successfully
-        if (!productDetails) {
-            return res.status(404).json({ message: 'Product not found' });
-        }
-
         // Add the product to the cart using the stored procedure
         const pool = await mssql.connect(sqlConfig);
-        const result = await pool.request()
-            .input('cartId', cartId)
-            .input('user_Id', user_Id)
-            .input('product_Id', product_Id)
-            .input('productAmount', 1) // Default product amount is 1 when adding to cart
-            .execute('addProducToCartProc');
-            console.log(cartId, user_Id);
+        const request = pool.request();
+        
+        // Define the input parameters for the stored procedure
+        request.input('cartId', cartId);
+        request.input('user_Id', user_Id);
+        request.input('product_Id', product_Id);
 
+        // Execute the stored procedure
+        const result = await request.execute('addProductToCartProc');
+
+        // Check the result and send appropriate response
         if (result.rowsAffected[0] === 1) {
             return res.status(201).json({ message: 'Product added to cart' });
         } else {
@@ -43,32 +38,51 @@ const addProductToCart = async (req, res) => {
     }
 };
 
-// Function to fetch product details based on product_Id (You need to implement this)
-async function fetchProductDetails(productId) {
+const getProductsByUserId = async (req, res)=>{
     try {
-        const pool = await mssql.connect(sqlConfig);
-        const result = await pool.request()
-            .input('productId', mssql.VarChar, productId)
-            .query('SELECT productName, productPrice FROM productsTable WHERE productId = @productId');
+        const { user_Id } = req.params
+        
+        const pool = await mssql.connect(sqlConfig)
+        const yourCart = await pool.request()
+        .input('user_Id', user_Id)
+        .execute('getProductsInCartByUserIdProc')
 
-        // Check if the product was found in the database
-        if (result.recordset.length > 0) {
-            const productDetails = result.recordset[0];
-            return {
-                productName: productDetails.productName,
-                productPrice: productDetails.productPrice
-            };
-        } else {
-            // Product not found, return null
-            return null;
+        if (yourCart.rowsAffected[0]>0 ){
+            return res.status(200).json({Your_Cart: yourCart.recordset})
+
+        }else{
+            return res.status(404).send("No products in this cart")
         }
+
     } catch (error) {
-        // Handle database error (log it or throw an error)
-        console.error(error);
-        throw error;
+        return res.status(500).json({Error : error})
     }
 }
 
+
+const removeProductFromCart = async (req, res)=>{
+    try {
+        const { cartId } = req.params
+        const pool  = await mssql.connect(sqlConfig)
+
+        const removeProduct = await pool.request()
+        .input('cartId', cartId)
+        .execute('removeProductFromCartProc')
+
+        if(removeProduct.rowsAffected[0] = 1){
+            return res.status(200).json({message: "Product removed successfully"})
+        }else{
+            return res.status(404).json({message : "Product not removed from cart"})
+        }
+    } catch (error) {
+        return res.status(500).json({Error : error})
+    }
+}
+
+
 module.exports = { 
-    addProductToCart
+    addProductToCart,
+    getProductsByUserId,
+    removeProductFromCart
 };
+
