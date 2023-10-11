@@ -6,7 +6,6 @@ const { v4 } = require('uuid');
 const { sqlConfig } = require('../Config/config');
 const { registerSchema, loginSchema } = require('../Validators/validators');
 
-
 dotenv.config();
 
 const registerUser = async (req, res) => {
