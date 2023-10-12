@@ -73,47 +73,16 @@ h3 {
   justify-content: center;
 }
 
-.categoryGrid {
-  margin-top: 5vh;
-  margin-left: 5%;
-  margin-right: 5%;
-  display: grid;
-  grid-template-columns: repeat(3, 33.3333%);
-  grid-template-areas: "one two two" "one three four";
-}
 
-.fashion {
-  grid-area: one;
+footer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
-
-.fashionImage>img {
-  /* height: 100%; */
-  /* width: 30%; */
-}
-
-.gadgets {
-  grid-area: two;
-}
-
-.gadgetsImage>img {
-  /* height: 50%; */
-  width: 70%;
-}
-
-.vegetables {
-  grid-area: three;
-}
-
-.vegetablesImage>img {
-   /* height: 50%; */
-  width: 50%; 
-}
-
-.skinCare {
-  grid-area: four;
-}
-
-.skinCareImage>img {
-   /* height: 50%; */
-   width: 50%; 
+.email{
+  display: flex;
+  flex-direction: row;
+  gap: 3vh;
 }
