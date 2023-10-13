@@ -18,16 +18,12 @@ a {
   text-decoration: none;
 }
 
-/* Add this CSS to your stylesheet or in a <style> tag in the <head> section */
 .carousel-inner {
   height: 450px;
-  /* Set the desired height for the carousel */
 }
 
-/* Optionally, you can also set a specific height for carousel items if needed */
 .carousel-item {
   height: 350px;
-  /* Set the height for individual carousel items */
 }
 
 h3 {
@@ -37,29 +33,16 @@ h3 {
   justify-content: center;
 }
 
-/* .categoryCards{
-  margin-top: 5vh;
-  display: flex;
-  margin-left: 5%;
-  gap: 2vh;
-  overflow-x: auto;
-  width: 100%;
-} */
 .categoryCards {
   margin-top: 5vh;
   display: flex;
   flex-direction: row;
-  /* Set the flex direction to row */
   gap: 2vh;
   overflow-x: auto;
-  /* Enable horizontal scroll */
   width: 100%;
-  /* Set a specific width for your container, or adjust as needed */
   padding: 10px;
-  /* Optional: Add padding for spacing */
 }
 
-/* Ensure your cards have a width greater than the container's width */
 .card {
   min-width: 40vh;
   min-height: 40vh;
@@ -75,6 +58,8 @@ h3 {
 
 
 footer{
+  margin-top: 3vh;
+  background-color: rgb(251, 251, 251);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,4 +70,12 @@ footer{
   display: flex;
   flex-direction: row;
   gap: 3vh;
+}
+
+.forgotPwd{
+  font-size: smaller;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
 }
